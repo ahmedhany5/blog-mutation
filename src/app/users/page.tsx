@@ -9,6 +9,8 @@ type User = {
     email: string
 }
 
+
+
 export default async function UsersPage() {
     const users = await getUsers()
 

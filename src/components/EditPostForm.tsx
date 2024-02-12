@@ -18,8 +18,10 @@ export function EditPostForm({ post }: { post: any }) {
         <form className="form" action={async (FormData: { get: (arg0: string) => any }) => {
 
             "use server"
-            await editPost({ id: post.id, title: FormData.get("title") || "", body: FormData.get("body") || "" })
+            await editPost({ id: post.id, title: FormData.get("title") || "", body: FormData.get("body") || "", userId: parseInt(FormData.get("userId")) })
             revalidatePath("/posts")
+            revalidatePath(`/posts/${post.id}`)
+            revalidatePath(`/users/${post.userId}`)
         }}>
             <input type="hidden" name="id" value={post.id} />
             <div className="form-row">

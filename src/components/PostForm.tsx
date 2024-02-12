@@ -15,6 +15,7 @@ export function PostForm() {
     return (
         <form className="form" action={async (FormData: { get: (arg0: string) => any }) => {
             "use server"
+            console.log(FormData.get("userId"))
             await createPost({ id: 0, title: FormData.get("title"), body: FormData.get("body"), userId: FormData.get("userId") })
 
             revalidatePath("/posts")

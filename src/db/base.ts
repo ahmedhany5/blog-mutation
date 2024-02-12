@@ -3,10 +3,10 @@
 
 export const baseApi = {
     get: async (path: string) => {
-        return await fetch(`http://localhost:3001/${path}`)
+        return await fetch(`http://localhost:3001/${path}`, { next: { tags: ["collection"] } })
     },
     post: async (path: string, body: any) => {
-        return await fetch(`http://localhost:3001/${path}`, { method: 'POST', body: JSON.stringify(body) }) 
+        return await fetch(`http://localhost:3001/${path}`, { method: 'POST', body: JSON.stringify(body) })
     },
     update: async (path: string, body: any) => {
         return await fetch(`http://localhost:3001/${path}`, { method: 'PATCH', body: JSON.stringify(body) })

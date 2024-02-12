@@ -21,7 +21,6 @@ export default function PostPage({
 }: {
     params: { postId: string }
 }) {
-    console.log(postId)
     return (
         <>
             <Suspense
@@ -71,7 +70,6 @@ export default function PostPage({
 async function PostDetails({ postId }: { postId: string }) {
     const post = await getPost(postId)
 
-    console.log(post)
 
     if (post == null) return notFound()
 
@@ -82,7 +80,7 @@ async function PostDetails({ postId }: { postId: string }) {
                     <Link className="btn btn-outline" href={`${postId}/edit`} >
                         Edit
                     </Link>
-                    <DeletePostBtn id={postId} />
+                    <DeletePostBtn {...post} />
                 </div>
             </h1>
             <span className="page-subtitle">

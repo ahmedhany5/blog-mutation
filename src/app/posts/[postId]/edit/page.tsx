@@ -3,6 +3,8 @@ import { getPost } from "@/db/posts";
 import { notFound } from "next/navigation";
 
 
+export const revalidate = 5
+
 export default async function EditPostPage({ params: { postId } }: { params: { postId: string } }) {
     const post = await getPost(postId)
 

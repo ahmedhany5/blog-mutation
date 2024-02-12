@@ -31,12 +31,12 @@ export const deletePost = async (id: string | number) => {
     return baseApi.delete(`posts/${id}`)
 }
 
-export const createPost = async ({ title, body }: Post) => {
-    return baseApi.post("posts", { title, body }).then(res => res.json())
+export const createPost = async ({ title, body, userId }: Post) => {
+    return baseApi.post("posts", { title, body, userId }).then(res => res.json())
 }
 
-export const editPost = async ({ id, title, body }: Post) => {
-    return baseApi.update(`posts/${id}`, { title, body }).then(res => res.json())
+export const editPost = async ({ id, title, body, userId }: Post) => {
+    return baseApi.update(`posts/${id}`, { title, body, userId }).then(res => res.json())
 }
 
 
